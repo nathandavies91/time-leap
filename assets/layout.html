@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>When's the next leap in time?</title>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Leap days are predictable, but leap seconds can be a little more troublesome...">
+        
+        <!-- Lato font -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+        
+        <!-- Prettifying -->
+        <style>
+            ::selection {
+                background: transparent;
+            }
+            
+            body {
+                background: #007BA7;
+                color: white;
+                font: 150% 'Lato', sans-serif;
+                font-weight: 100;
+                transition: font-size .3s;
+            }
+            
+            p {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0 10%;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%);
+            }
+            
+            span {
+                opacity: .7;
+            }
+            
+            time {
+                display: block;
+                font-size: 1.8em;
+                margin-bottom: .1em;
+            }
+            
+            @media (min-width: 800px) {
+                body {
+                    font-size: 300%;
+                }
+            }
+        </style>
+        
+        <!-- Google Analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-64780597-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </head>
+    <!-- shoulders, knees & toes -->
+    <body>
+        <p>
+            <time>{date}</time>
+            <span>Leap {type}</span>
+        </p>
+    </body>
+</html>
