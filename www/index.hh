@@ -16,7 +16,7 @@ class TimeLeap
     /**
      * @var string
      */
-    protected string $date, $format = "l, jS F Y", $type;
+    protected string $date, $datetime, $format = "l, jS F Y", $type;
     
     /**
      * Constructor
@@ -26,7 +26,10 @@ class TimeLeap
         $this->today = new Datetime;
         
         // Next event
-        $this->date = $this->isLeapDayNext() ? $this->getNextLeapDay()->format($this->format) : $this->getNextLeapSecond()->format($this->format);
+        $nextEvent = $this->isLeapDayNext() ? $this->getNextLeapDay() : $this->getNextLeapSecond();
+        
+        $this->date = $nextEvent->format($this->format);
+        $this->datetime = $nextEvent->format("Y-m-d");
         $this->type = $this->isLeapDayNext() ? "Day" : "Second";
         
         // Display
@@ -50,7 +53,7 @@ class TimeLeap
     protected function getHTML(): string
     {
         if (!is_null(($file = $this->getFile("layout.html"))))
-            return preg_replace(['/\{date\}/', '/\{type\}/'], [$this->date, $this->type], $file);
+            return preg_replace(['/\{date\}/', '/\{datetime\}/', '/\{type\}/'], [$this->date, $this->datetime, $this->type], $file);
         else
             return $this->date . " (Leap " . $this->type . ")\n";
     }
